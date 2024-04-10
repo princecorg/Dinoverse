@@ -66,13 +66,13 @@ INSERT INTO IF NOT EXISTS periode (nom_periode) VALUES ('Permien');
 -- Ajout d'animaux
 INSERT INTO espece (nom_espece, type_espece, poids_moyen, longueur_moyenne, description, id_periode)
 VALUES
- ('Stégosaurus', 'Dinosaure', 2500, 9, 'Un dinosaure herbivore avec des plaques dorsales', 2), -- Jurassique
+ ('Stegosaurus', 'Dinosaure', 2500, 9, 'Un dinosaure herbivore avec des plaques dorsales', 2), -- Jurassique
  ('Ankylosaurus', 'Dinosaure', 4000, 6, 'Un dinosaure herbivore avec une armure osseuse', 3), -- Crétacé
- ('Dimétrodon', 'Reptile mammifère', 200, 3, 'Un reptile mammifère à voile du Permien', 4), -- Permien
+ ('Dimetrodon', 'Reptile mammifère', 200, 3, 'Un reptile mammifère à voile du Permien', 4), -- Permien
  ('Spinosauruse', 'Dinosaure', 7000, 15, 'Un grand dinosaure carnivore à voile', 3), -- Crétacé
  ('Edmontosaurus', 'Dinosaure', 4000, 12, 'Un dinosaure herbivore à bec de canard', 3), -- Crétacé
  ('Brontosaurus', 'Dinosaure', 20000, 22, 'Un immense dinosaure herbivore à long cou', 2), -- Jurassique
- ('Tricératops', 'Dinosaure', 8000, 9, 'Un dinosaure herbivore avec trois cornes', 3), -- Crétacé
+ ('Triceratops', 'Dinosaure', 8000, 9, 'Un dinosaure herbivore avec trois cornes', 3), -- Crétacé
  ('Velociraptor', 'Dinosaure', 15, 2, 'Un petit dinosaure carnivore à griffes en forme de faucille', 3),
  ('Deinonychus', 'Dinosaure', 70, 3, 'Un dinosaure carnivore intelligent et agile', 3),
  ('Compsognathus', 'Dinosaure', 3, 0.6, 'Un petit dinosaure carnivore', 2),
