@@ -96,7 +96,7 @@ VALUES
  ('Lystrosaurus', 'Reptile mammifère', 20, 0.75, 'Un petit reptile mammifère herbivore à large crâne du Permien', 4),
  ('Sphenacodon', 'Reptile mammifère', 100, 2, 'Un reptile mammifère carnivore du Permien', 4),
  ('Varanops', 'Reptile mammifère', 20, 1, 'Un petit reptile mammifère carnivore du Permien', 4),
- ('Ophiacodon', 'Reptile mammifère', 50, 1.5, 'Un reptile mammifère carnivore du Permien', 4),
+ ('Ophiacodon', 'Reptile mammifère', 50, 1.5, 'Un reptile mammifère carnivore du Permien', 4)
 
 INSERT INTO espece_regime (id_espece, id_regime) VALUES
 (1, 2), -- Stégosaurus (herbivore)
@@ -129,7 +129,7 @@ INSERT INTO espece_regime (id_espece, id_regime) VALUES
 (28, 2), -- Lystrosaurus (herbivore)
 (29, 1), -- Sphenacodon (carnivore)
 (30, 1), -- Varanops (carnivore)
-(31, 1), -- Ophiacodon (carnivore)
+(31, 1) -- Ophiacodon (carnivore)
 
 INSERT INTO espece_periode (id_espece, id_periode) VALUES
 (1, 2), -- Stégosaurus (Jurassique)
@@ -162,5 +162,24 @@ INSERT INTO espece_periode (id_espece, id_periode) VALUES
 (28, 4), -- Lystrosaurus (Permien)
 (29, 4), -- Sphenacodon (Permien)
 (30, 4), -- Varanops (Permien)
-(31, 4), -- Ophiacodon (Permien)
+(31, 4) -- Ophiacodon (Permien)
+
+INSERT INTO fossile (id_espece, date_decouverte, lieu_decouverte, description) VALUES
+(1, '1877-01-01', 'Colorado, USA', 'Squelette complet avec des plaques dorsales bien conservées'),
+(1, '1922-05-15', 'Wyoming, USA', 'Crâne et plaques dorsales fragmentaires'),
+(2, '1908-10-24', 'Alberta, Canada', 'Squelette complet avec une armure osseuse bien conservée'),
+(2, '1947-07-08', 'Montana, USA', 'Crâne et armure osseuse fragmentaires'),(7, '1889-07-20', 'Wyoming, USA', 'Crâne complet avec trois cornes bien conservées'),
+(7, '1993-04-12', 'Montana, USA', 'Squelette partiel avec des cornes fragmentaires'),
+(11, '1902-05-14', 'Montana, USA', 'Squelette partiel avec un crâne bien conservé'),
+(11, '1991-08-21', 'Dakota du Sud, USA', 'Dents et fragments de mâchoire'),
+(8, '1924-06-03', 'Mongolie', 'Squelette complet avec des griffes en forme de faucille bien conservées'),
+(8, '1993-10-11', 'Chine', 'Crâne et membres fragmentaires'),
+(9, '1964-08-15', 'Montana, USA', 'Squelette partiel avec des griffes en forme de faucille bien conservées'),
+(9, '1974-02-25', 'Wyoming, USA', 'Crâne et membres fragmentaires'),
+(19, '1824-09-01', 'Angleterre', 'Squelette complet bien conservé'),
+(19, '1998-03-07', 'France', 'Crâne et membres fragmentaires'),
+(20, '1822-10-12', 'Pays-Bas', 'Squelette partiel avec un crâne bien conservé'),
+(20, '1987-11-23', 'Belgique', 'Dents et fragments de mâchoire')
+
+
 
