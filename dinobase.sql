@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS espece (
  poids_moyen INT,
  longueur_moyenne INT,
  description TEXT,
+ img_espece VARCHAR(255) NOT NULL,
  id_periode INT, 
  FOREIGN KEY (id_periode) REFERENCES periode(id_periode)
 );
@@ -66,17 +67,17 @@ INSERT INTO IF NOT EXISTS periode (nom_periode) VALUES ('Permien');
 -- Ajout d'animaux
 INSERT INTO espece (nom_espece, type_espece, poids_moyen, longueur_moyenne, description, id_periode)
 VALUES
- ('Stegosaurus', 'Dinosaure', 2500, 9, 'Un dinosaure herbivore avec des plaques dorsales', 2), -- Jurassique
- ('Ankylosaurus', 'Dinosaure', 4000, 6, 'Un dinosaure herbivore avec une armure osseuse', 3), -- Crétacé
- ('Dimetrodon', 'Reptile mammifère', 200, 3, 'Un reptile mammifère à voile du Permien', 4), -- Permien
- ('Spinosauruse', 'Dinosaure', 7000, 15, 'Un grand dinosaure carnivore à voile', 3), -- Crétacé
- ('Edmontosaurus', 'Dinosaure', 4000, 12, 'Un dinosaure herbivore à bec de canard', 3), -- Crétacé
- ('Brontosaurus', 'Dinosaure', 20000, 22, 'Un immense dinosaure herbivore à long cou', 2), -- Jurassique
- ('Triceratops', 'Dinosaure', 8000, 9, 'Un dinosaure herbivore avec trois cornes', 3), -- Crétacé
- ('Velociraptor', 'Dinosaure', 15, 2, 'Un petit dinosaure carnivore à griffes en forme de faucille', 3),
- ('Deinonychus', 'Dinosaure', 70, 3, 'Un dinosaure carnivore intelligent et agile', 3),
- ('Compsognathus', 'Dinosaure', 3, 0.6, 'Un petit dinosaure carnivore', 2),
- ('Tyrannosaurus rex', 'Dinosaure', 7000, 12, 'Un grand dinosaure carnivore', 3),
+ ('Stegosaurus', 'Dinosaure', 2500, 9, 'Un dinosaure herbivore avec des plaques dorsales','https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Stegosaurus_stenops_Life_Reconstruction.png/640px-Stegosaurus_stenops_Life_Reconstruction.png', 2), -- Jurassique
+ ('Ankylosaurus', 'Dinosaure', 4000, 6, 'Un dinosaure herbivore avec une armure osseuse','https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/202007_Ankylosaurus_magniventris.svg/640px-202007_Ankylosaurus_magniventris.svg.png', 3), -- Crétacé
+ ('Dimetrodon', 'Reptile mammifère', 200, 3, 'Un reptile mammifère à voile du Permien','https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Dimetrodon_grandis_3D_Model_Reconstruction.png/640px-Dimetrodon_grandis_3D_Model_Reconstruction.png', 4), -- Permien
+ ('Spinosaurus', 'Dinosaure', 7000, 15, 'Un grand dinosaure carnivore à voile','https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Spinosaurus_Model_%282%29.png/640px-Spinosaurus_Model_%282%29.png', 3), -- Crétacé
+ ('Edmontosaurus', 'Dinosaure', 4000, 12, 'Un dinosaure herbivore à bec de canard','https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Edmontosaurus_BW.jpg/640px-Edmontosaurus_BW.jpg', 3), -- Crétacé
+ ('Brontosaurus', 'Dinosaure', 20000, 22, 'Un immense dinosaure herbivore à long cou','https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Brontosaurus.png/640px-Brontosaurus.png', 2), -- Jurassique
+ ('Triceratops', 'Dinosaure', 8000, 9, 'Un dinosaure herbivore avec trois cornes','https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Triceratops_liveDB.jpg/640px-Triceratops_liveDB.jpg', 3), -- Crétacé
+ ('Velociraptor', 'Dinosaure', 15, 2, 'Un petit dinosaure carnivore à griffes en forme de faucille','https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Velociraptor_recon.png/640px-Velociraptor_recon.png', 3),
+ ('Deinonychus', 'Dinosaure', 70, 3, 'Un dinosaure carnivore intelligent et agile','https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Fred_Wierum_Deinonychus.png/640px-Fred_Wierum_Deinonychus.png', 3),
+ ('Compsognathus', 'Dinosaure', 3, 0.6, 'Un petit dinosaure carnivore','https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Compsognathus_BW.jpg/640px-Compsognathus_BW.jpg', 2),
+ ('Tyrannosaurus rex', 'Dinosaure', 7000, 12, 'Un grand dinosaure carnivore','https://upload.wikimedia.org/wikipedia/commons/6/61/202007_Tyrannosaurus_rex.svg', 3),
  ('Utahraptor', 'Dinosaure', 500, 7, 'Un grand dinosaure carnivore à griffes en forme de faucille', 3),
  ('Baryonyx', 'Dinosaure', 1750, 9.5, 'Un dinosaure carnivore à griffes en forme de crochet', 3),
  ('Apatosaurus', 'Dinosaure', 30000, 22, 'Un immense dinosaure herbivore à long cou', 2),
