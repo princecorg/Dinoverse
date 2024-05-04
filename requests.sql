@@ -1,8 +1,8 @@
 -- **Créer**
 
 -- Ajouter un nouveau dinosaure
-INSERT INTO espece (nom_espece, type_espece, poids_moyen, longueur_moyenne, description, id_periode)
-VALUES ('Deinonychus antirrhopus', 'Dinosaure', 70, 3, 'Un dinosaure carnivore intelligent et agile', 3);
+INSERT INTO espece (nom_espece, type_espece, poids_moyen, longueur_moyenne, description, img_espece, id_periode)
+VALUES ('Deinonychus antirrhopus', 'Dinosaure', 70, 3, 'Un dinosaure carnivore intelligent et agile','', 3);
 
 -- Ajouter un nouveau régime alimentaire
 INSERT INTO regime_alimentaire (type_regime) VALUES ('Piscivore');
