@@ -33,8 +33,7 @@ CONCAT(e.poids_moyen/1000, ' t') AS poids_tonnes
 FROM espece e
 INNER JOIN espece_regime er ON e.id_espece = er.id_espece
 INNER JOIN regime_alimentaire r ON er.id_regime = r.id_regime
-INNER JOIN espece_periode ep ON e.id_espece = ep.id_espece
-INNER JOIN periode p ON ep.id_periode = p.id_periode;
+INNER JOIN periode p ON e.id_periode = p.id_periode;
 
 -- Sélectionner les dinosaures carnivores
 SELECT * FROM espece e
