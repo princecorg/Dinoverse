@@ -1,72 +1,68 @@
 -- Création de la base de données
-
 CREATE DATABASE IF NOT EXISTS dinobase CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 -- Utilisation de la base de données
-
 USE dinobase;
 
 -- Création des tables
 
 -- Table Espèce
 CREATE TABLE IF NOT EXISTS espece (
- id_espece INT PRIMARY KEY AUTO_INCREMENT,
- nom_espece VARCHAR(255) NOT NULL,
- type_espece ENUM('Dinosaure', 'Reptile mammalien', 'Reptile volant', 'Reptile marin') NOT NULL,
- poids_moyen INT,
- longueur_moyenne INT,
- description TEXT,
- img_espece VARCHAR(255) NOT NULL,
- id_periode INT, 
- FOREIGN KEY (id_periode) REFERENCES periode(id_periode)
+    id_espece INT PRIMARY KEY AUTO_INCREMENT,
+    nom_espece VARCHAR(255) NOT NULL,
+    type_espece ENUM('Dinosaure', 'Reptile mammalien', 'Reptile volant', 'Reptile marin') NOT NULL,
+    poids_moyen INT,
+    longueur_moyenne INT,
+    description TEXT,
+    img_espece VARCHAR(255) NOT NULL,
+    id_periode INT, 
+    FOREIGN KEY (id_periode) REFERENCES periode(id_periode)
 );
 
 -- Table Régime alimentaire
 CREATE TABLE IF NOT EXISTS regime_alimentaire (
- id_regime INT PRIMARY KEY AUTO_INCREMENT,
- type_regime VARCHAR(255) NOT NULL
+    id_regime INT PRIMARY KEY AUTO_INCREMENT,
+    type_regime VARCHAR(255) NOT NULL
 );
 
 -- Table Période
 CREATE TABLE IF NOT EXISTS periode (
- id_periode INT PRIMARY KEY AUTO_INCREMENT,
- nom_periode VARCHAR(255) NOT NULL
+    id_periode INT PRIMARY KEY AUTO_INCREMENT,
+    nom_periode VARCHAR(255) NOT NULL
 );
 
 -- Table Fossile
 CREATE TABLE IF NOT EXISTS fossile (
- id_fossile INT PRIMARY KEY AUTO_INCREMENT,
- id_espece INT,
- date_decouverte DATE,
- lieu_decouverte VARCHAR(255),
- description TEXT,
- FOREIGN KEY (id_espece) REFERENCES espece(id_espece),
- FOREIGN KEY (id_periode) REFERENCES periode(id_periode) -- Ajout de la contrainte de clé étrangère
+    id_fossile INT PRIMARY KEY AUTO_INCREMENT,
+    id_espece INT,
+    date_decouverte DATE,
+    lieu_decouverte VARCHAR(255),
+    description TEXT,
+    FOREIGN KEY (id_espece) REFERENCES espece(id_espece)
 );
 
 -- Table Association Espèce-Régime alimentaire
 CREATE TABLE IF NOT EXISTS espece_regime (
- id_espece INT,
- id_regime INT,
- PRIMARY KEY (id_espece, id_regime),
- FOREIGN KEY (id_espece) REFERENCES espece(id_espece),
- FOREIGN KEY (id_regime) REFERENCES regime_alimentaire(id_regime)
+    id_espece INT,
+    id_regime INT,
+    PRIMARY KEY (id_espece, id_regime),
+    FOREIGN KEY (id_espece) REFERENCES espece(id_espece),
+    FOREIGN KEY (id_regime) REFERENCES regime_alimentaire(id_regime)
 );
 
 -- Insertion des valeurs par défaut
 
-INSERT INTO IF NOT EXISTS regime_alimentaire (type_regime) VALUES ('Carnivore');
-INSERT INTO IF NOT EXISTS regime_alimentaire (type_regime) VALUES ('Herbivore');
-INSERT INTO IF NOT EXISTS regime_alimentaire (type_regime) VALUES ('Omnivore');
+INSERT INTO regime_alimentaire (type_regime) VALUES ('Carnivore');
+INSERT INTO regime_alimentaire (type_regime) VALUES ('Herbivore');
+INSERT INTO regime_alimentaire (type_regime) VALUES ('Omnivore');
 
-INSERT INTO IF NOT EXISTS periode (nom_periode) VALUES ('Trias');
-INSERT INTO IF NOT EXISTS periode (nom_periode) VALUES ('Jurassique');
-INSERT INTO IF NOT EXISTS periode (nom_periode) VALUES ('Crétacé');
-INSERT INTO IF NOT EXISTS periode (nom_periode) VALUES ('Permien');
+INSERT INTO periode (nom_periode) VALUES ('Trias');
+INSERT INTO periode (nom_periode) VALUES ('Jurassique');
+INSERT INTO periode (nom_periode) VALUES ('Crétacé');
+INSERT INTO periode (nom_periode) VALUES ('Permien');
 
 -- Ajout d'animaux
-INSERT INTO espece (nom_espece, type_espece, poids_moyen, longueur_moyenne, description, id_periode)
-VALUES
+INSERT INTO espece (nom_espece, type_espece, poids_moyen, longueur_moyenne, description, img_espece, id_periode) VALUES
  ('Stegosaurus', 'Dinosaure', 2500, 9, 'Un dinosaure herbivore avec des plaques dorsales','https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Stegosaurus_stenops_Life_Reconstruction.png/640px-Stegosaurus_stenops_Life_Reconstruction.png', 2), -- Jurassique
  ('Ankylosaurus', 'Dinosaure', 4000, 6, 'Un dinosaure herbivore avec une armure osseuse','https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/202007_Ankylosaurus_magniventris.svg/640px-202007_Ankylosaurus_magniventris.svg.png', 3), -- Crétacé
  ('Dimetrodon', 'Reptile mammifère', 200, 3, 'Un reptile mammifère à voile du Permien','https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Dimetrodon_grandis_3D_Model_Reconstruction.png/640px-Dimetrodon_grandis_3D_Model_Reconstruction.png', 4), -- Permien
@@ -92,7 +88,7 @@ VALUES
  ('Pteranodon', 'Reptile volant', 20, 3, 'Un reptile volant insectivore', 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Pteranodon_longiceps_mmartyniuk_wiki.png/640px-Pteranodon_longiceps_mmartyniuk_wiki.png',3),
  ('Quetzalcoatlus', 'Reptile volant', 250, 10.5, 'Un des plus grands reptiles volants','https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Quetzalcoatlus.jpg/640px-Quetzalcoatlus.jpg', 3),
  ('Dimorphodon', 'Reptile volant', 1, 1, 'Un petit reptile volant insectivore','https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Dimorphodon2DB.jpg/640px-Dimorphodon2DB.jpg', 1),
- ('Rhamphorhynchus', 'Reptile volant', 2, 1.5, 'Un reptile volant piscivore', 2),
+ ('Rhamphorhynchus', 'Reptile volant', 2, 1.5, 'Un reptile volant piscivore','https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Rhamphorhynchus_DB.jpg/640px-Rhamphorhynchus_DB.jpg', 2),
  ('Edaphosaurus', 'Reptile mammifère', 300, 3, 'Un reptile mammifère herbivore à voile du Permien','https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Edaphosaurus_NT_small.jpg/640px-Edaphosaurus_NT_small.jpg', 4),
  ('Lystrosaurus', 'Reptile mammifère', 20, 0.75, 'Un petit reptile mammifère herbivore à large crâne du Permien','https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/202012_Lystrosaurus.svg/640px-202012_Lystrosaurus.svg.png', 4),
  ('Sphenacodon', 'Reptile mammifère', 100, 2, 'Un reptile mammifère carnivore du Permien','https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Sphenacodon222.jpg/640px-Sphenacodon222.jpg', 4),
@@ -132,39 +128,6 @@ INSERT INTO espece_regime (id_espece, id_regime) VALUES
 (30, 1), -- Varanops (carnivore)
 (31, 1) -- Ophiacodon (carnivore)
 
-INSERT INTO espece_periode (id_espece, id_periode) VALUES
-(1, 2), -- Stégosaurus (Jurassique)
-(2, 3), -- Ankylosaurus (Crétacé)
-(3, 4), -- Dimétrodon (Permien)
-(4, 3), -- Spinosaurus (Crétacé)
-(5, 3), -- Edmontosaurus (Crétacé)
-(6, 2), -- Brontosaurus (Jurassique)
-(7, 3), -- Tricératops (Crétacé)
-(8, 3), -- Velociraptor (Crétacé)
-(9, 3), -- Deinonychus (Crétacé)
-(10, 2), -- Compsognathus (Jurassique)
-(11, 3), -- Tyrannosaurus rex (Crétacé)
-(12, 3), -- Utahraptor (Crétacé)
-(13, 3), -- Baryonyx (Crétacé)
-(14, 2), -- Apatosaurus (Jurassique)
-(15, 2), -- Brachiosaurus (Jurassique)
-(16, 2), -- Diplodocus (Jurassique)
-(17, 3), -- Parasaurolophus (Crétacé)
-(18, 3), -- Pachycephalosaurus (Crétacé)
-(19, 2), -- Plesiosaurus (Jurassique)
-(20, 3), -- Mosasaurus (Crétacé)
-(21, 2), -- Liopleurodon (Jurassique)
-(22, 1), -- Shonisaurus (Trias)
-(23, 3), -- Pteranodon (Crétacé)
-(24, 3), -- Quetzalcoatlus (Crétacé)
-(25, 1), -- Dimorphodon (Trias)
-(26, 2), -- Rhamphorhynchus (Jurassique)
-(27, 4), -- Edaphosaurus (Permien)
-(28, 4), -- Lystrosaurus (Permien)
-(29, 4), -- Sphenacodon (Permien)
-(30, 4), -- Varanops (Permien)
-(31, 4) -- Ophiacodon (Permien)
-
 INSERT INTO fossile (id_espece, date_decouverte, lieu_decouverte, description) VALUES
 (1, '1877-01-01', 'Colorado, USA', 'Squelette complet avec des plaques dorsales bien conservées'),
 (1, '1922-05-15', 'Wyoming, USA', 'Crâne et plaques dorsales fragmentaires'),
@@ -181,6 +144,3 @@ INSERT INTO fossile (id_espece, date_decouverte, lieu_decouverte, description) V
 (19, '1998-03-07', 'France', 'Crâne et membres fragmentaires'),
 (20, '1822-10-12', 'Pays-Bas', 'Squelette partiel avec un crâne bien conservé'),
 (20, '1987-11-23', 'Belgique', 'Dents et fragments de mâchoire')
-
-
-
